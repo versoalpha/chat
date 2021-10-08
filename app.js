@@ -14,7 +14,9 @@ const getCSV = require('get-csv');
 
 
 
-
+    getCSV('https://docs.google.com/spreadsheets/d/1_0ZfPnHpX6b79W7RZ-5NzAFmh6wjy_QEdOQtSWYm2SQ/gviz/tq?tqx=out:csv&tq&gid=1443938747')
+    .then(rows => a= rows);
+    console.log(a)
 
 
 

@@ -9,6 +9,10 @@
   "routes": [
       {
           "src": "/",
+          "methods":[
+            "POST",
+            "GET"
+            ],
           "dest": "/api/app.js"
       }
   ]

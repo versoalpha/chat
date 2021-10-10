@@ -6,27 +6,14 @@ const port = process.env.PORT || 8080;
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({extended : true}));
 
-var oi = "oooo12"
+var oi = "oooo"
 
 var a
-
 const getCSV = require('get-csv');
-
-
-
-    getCSV('https://docs.google.com/spreadsheets/d/1_0ZfPnHpX6b79W7RZ-5NzAFmh6wjy_QEdOQtSWYm2SQ/gviz/tq?tqx=out:csv&tq&gid=1443938747')
-    .then(rows => a= rows);
-    console.log(a)
-
-
-
  
-
 var fs = require('fs')
 
-
-
-app.get('/api/users', function(req, res) {
+app.get('/api/chat', function(req, res) {
     getCSV('https://docs.google.com/spreadsheets/d/1_0ZfPnHpX6b79W7RZ-5NzAFmh6wjy_QEdOQtSWYm2SQ/gviz/tq?tqx=out:csv&tq&gid=1443938747')
     .then(rows => a= rows);
     console.log(a)
@@ -38,7 +25,7 @@ app.get('/api/users', function(req, res) {
   app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-  app.post('/api/users', function(req, res) {
+  app.post('/api/chat', function(req, res) {
     const name = req.body.name;
     const text1 = req.body.text1;
    
@@ -47,7 +34,7 @@ app.use(express.urlencoded({ extended: true }));
         if (err) throw err
     
         var arrayOfObjects = JSON.parse(data)
-        arrayOfObjects.users.push({
+        arrayOfObjects.chat.push({
             name: req.body.name,
             age: req.body.text1
         })
@@ -59,8 +46,6 @@ app.use(express.urlencoded({ extended: true }));
             console.log('Done!')
         })
     })
-    
-    console.log(req.body);
     res.send({
       'name': a,
     });

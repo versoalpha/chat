@@ -47,7 +47,7 @@ app.use(express.urlencoded({ extended: true }));
         })
     })
     res.send({
-      'name': a,
+      'name': JSON.stringify(arrayOfObjects),
     });
   });
   app.listen(port);
